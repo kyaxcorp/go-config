@@ -7,7 +7,6 @@ toolchain go1.22.3
 require (
 	github.com/caarlos0/env/v6 v6.10.0
 	github.com/fsnotify/fsnotify v1.7.0
-	github.com/kyaxcorp/go-core v0.0.1-20240805-0001
 	github.com/kyaxcorp/go-db v1.0.0
 	github.com/kyaxcorp/go-helper v1.0.1
 	github.com/kyaxcorp/go-http v1.0.1
@@ -46,6 +45,7 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.8 // indirect
+	github.com/kyaxcorp/go-core v0.0.1-20240805-0001 // indirect
 	github.com/kyaxcorp/gofile v0.0.1-20220602-0002 // indirect
 	github.com/kyaxcorp/gofm v0.0.1-20220602-0003 // indirect
 	github.com/leodido/go-urn v1.4.0 // indirect
