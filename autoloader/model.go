@@ -1,6 +1,6 @@
 package autoloader
 
-import loggingConfig "github.com/kyaxcorp/go-core/core/logger/config"
+import loggingConfig "github.com/kyaxcorp/go-logger/config"
 
 var LoadedConfig Config
 

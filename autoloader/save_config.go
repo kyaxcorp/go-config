@@ -8,7 +8,6 @@ import (
 	"github.com/kyaxcorp/go-helper/errors2"
 	"github.com/kyaxcorp/go-helper/hash"
 
-	//brokerConfig "github.com/kyaxcorp/go-core/core/services/broker/config"
 	"github.com/spf13/viper"
 )
 

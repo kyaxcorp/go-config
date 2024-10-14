@@ -11,7 +11,6 @@ import (
 	cfgData "github.com/kyaxcorp/go-config/data"
 	"github.com/kyaxcorp/go-config/events"
 	"github.com/kyaxcorp/go-config/model"
-	"github.com/kyaxcorp/go-core/core/logger/application"
 	"github.com/kyaxcorp/go-helper/_struct"
 	"github.com/kyaxcorp/go-helper/conv"
 	"github.com/kyaxcorp/go-helper/errors2"
@@ -24,6 +23,7 @@ import (
 	"github.com/kyaxcorp/go-helper/json"
 	"github.com/kyaxcorp/go-helper/process"
 	timezone "github.com/kyaxcorp/go-helper/time"
+	"github.com/kyaxcorp/go-logger/application"
 	"github.com/spf13/viper"
 )
 

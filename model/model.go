@@ -1,12 +1,12 @@
 package model
 
 import (
-	websocketClientConfig "github.com/kyaxcorp/go-core/core/clients/websocket/config"
-	httpConfig "github.com/kyaxcorp/go-core/core/listeners/http/config"
-	websocketConfig "github.com/kyaxcorp/go-core/core/listeners/websocket/config"
-	loggingConfig "github.com/kyaxcorp/go-core/core/logger/config"
 	cockroachConfig "github.com/kyaxcorp/go-db/driver/cockroach/config"
 	mysqlConfig "github.com/kyaxcorp/go-db/driver/mysql/config"
+	httpConfig "github.com/kyaxcorp/go-http/config"
+	loggingConfig "github.com/kyaxcorp/go-logger/config"
+	websocketClientConfig "github.com/kyaxcorp/go-websocket"
+	websocketConfig "github.com/kyaxcorp/go-websocket"
 )
 
 // Here we will be storing default configuration key from the map!

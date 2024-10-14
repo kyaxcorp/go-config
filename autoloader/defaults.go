@@ -1,18 +1,18 @@
 package autoloader
 
 import (
-	"github.com/kyaxcorp/go-helper/slice"
+
 	// cassandraConfig "github.com/kyaxcorp/go-db/driver/cassandra/config"
 
 	cfgData "github.com/kyaxcorp/go-config/data"
-	websocketClientConfig "github.com/kyaxcorp/go-core/core/clients/websocket/config"
-	websocketClientConnection "github.com/kyaxcorp/go-core/core/clients/websocket/connection"
-	httpConfig "github.com/kyaxcorp/go-core/core/listeners/http/config"
-	websocketServerConfig "github.com/kyaxcorp/go-core/core/listeners/websocket/config"
-	loggingConfig "github.com/kyaxcorp/go-core/core/logger/config"
+	// websocketClientConnection "github.com/kyaxcorp/go-websocket/connection"
 	cockroachConfig "github.com/kyaxcorp/go-db/driver/cockroach/config"
 	mysqlConfig "github.com/kyaxcorp/go-db/driver/mysql/config"
 	"github.com/kyaxcorp/go-helper/_struct"
+	httpConfig "github.com/kyaxcorp/go-http/config"
+	loggingConfig "github.com/kyaxcorp/go-logger/config"
+	websocketClientConfig "github.com/kyaxcorp/go-websocket"
+	websocketServerConfig "github.com/kyaxcorp/go-websocket"
 )
 
 func createMaps() {
@@ -294,46 +294,46 @@ func setDefaults(cfg Config) error {
 	}
 
 	// Loop through all connections and set the default values
-	for instanceName, wsInstance := range cfgData.MainConfig.Clients.WebSocket.Instances {
+	// for instanceName, wsInstance := range cfgData.MainConfig.Clients.WebSocket.Instances {
 
-		// If the default connection doesn't exist, create it!
-		if exists, _ := slice.IndexExists(wsInstance.Connections, 0); !exists {
-			// Create a default connection config for websocket
-			wsInstance.Connections = append(wsInstance.Connections, &websocketClientConnection.Connection{})
-		}
+	// 	// If the default connection doesn't exist, create it!
+	// 	if exists, _ := slice.IndexExists(wsInstance.Connections, 0); !exists {
+	// 		// Create a default connection config for websocket
+	// 		wsInstance.Connections = append(wsInstance.Connections, &websocketClientConnection.Connection{})
+	// 	}
 
-		// Loop through other connections and check if hey are ok!
-		for connIndex, conn := range wsInstance.Connections {
-			// Set the standard values for the object
-			if _err := _struct.SetDefaultValues(conn); _err != nil {
-				panic(_err)
-			}
-			// Set the authentication options
-			if _err := _struct.SetDefaultValues(&conn.AuthOptions); _err != nil {
-				panic(_err)
-			}
+	// 	// Loop through other connections and check if hey are ok!
+	// 	for connIndex, conn := range wsInstance.Connections {
+	// 		// Set the standard values for the object
+	// 		if _err := _struct.SetDefaultValues(conn); _err != nil {
+	// 			panic(_err)
+	// 		}
+	// 		// Set the authentication options
+	// 		if _err := _struct.SetDefaultValues(&conn.AuthOptions); _err != nil {
+	// 			panic(_err)
+	// 		}
 
-			wsInstance.Connections[connIndex] = conn
-		}
+	// 		wsInstance.Connections[connIndex] = conn
+	// 	}
 
-		// Logger config
-		// Setting default values for logger
-		if _err := _struct.SetDefaultValues(&wsInstance.Logger); _err != nil {
-			panic(_err)
-		}
+	// 	// Logger config
+	// 	// Setting default values for logger
+	// 	if _err := _struct.SetDefaultValues(&wsInstance.Logger); _err != nil {
+	// 		panic(_err)
+	// 	}
 
-		// Reconnect Options
-		if _err := _struct.SetDefaultValues(&wsInstance.Reconnect); _err != nil {
-			panic(_err)
-		}
+	// 	// Reconnect Options
+	// 	if _err := _struct.SetDefaultValues(&wsInstance.Reconnect); _err != nil {
+	// 		panic(_err)
+	// 	}
 
-		if _err := _struct.SetDefaultValues(&wsInstance); _err != nil {
-			panic(_err)
-		}
+	// 	if _err := _struct.SetDefaultValues(&wsInstance); _err != nil {
+	// 		panic(_err)
+	// 	}
 
-		// Set the logger to websocket config
-		cfgData.MainConfig.Clients.WebSocket.Instances[instanceName] = wsInstance
-	}
+	// 	// Set the logger to websocket config
+	// 	cfgData.MainConfig.Clients.WebSocket.Instances[instanceName] = wsInstance
+	// }
 	//---------------------------------------------------------------------------------\\
 	//---------------------\\    WEBSOCKET CLIENT    //--------------------------------\\
 	//---------------------------------------------------------------------------------\\
